@@ -16,7 +16,7 @@ export const skillsData: SkillCategory[] = [
   {
     icon: Globe,
     title: "Web Technologies",
-    items: ["React.js", "Node.js", "Express.js", "RESTful APIs", "GraphQL"]
+    items: ["React.js", "Node.js", "GraphQL"]
   },
   {
     icon: Cloud,
@@ -36,13 +36,13 @@ export const skillsData: SkillCategory[] = [
     icon: Shield,
     title: "Cybersecurity",
     items: [
-      "Offensive and Defensive Tools"
+      "Nmap","Wireshark"
     ]
   },
   {
     icon: Terminal,
     title: "Development Tools",
-    items: ["Git", "Docker", "VS Code", "Postman", "Linux"]
+    items: ["Git", "Docker", "Linux"]
   },
   {
     icon: Database,

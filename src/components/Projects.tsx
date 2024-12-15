@@ -12,7 +12,7 @@ const Projects = () => {
   useEffect(() => {
     const loadProjects = async () => {
       try {
-        const data = await fetchGithubProjects('Sujeeth-infosec');
+        const data = await fetchGithubProjects('charansai1432');
         setProjects(data);
         setError(null);
       } catch (err) {

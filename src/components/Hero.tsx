@@ -25,7 +25,7 @@ const Hero = () => {
           </p>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
             Final-year Computer Science Engineering student specializing in Cybersecurity, AWS Cloud, and Docker. 
-            Passionate about creating secure and innovative solutions with expertise in Python development and cloud infrastructure.
+            Passionate about creating secure and innovative solutions with expertise in Python development and cloud infrastructure and security.
           </p>
           <div className="flex justify-center gap-4 mt-8">
             <a href="#contact" className="btn btn-primary">Contact Me</a>

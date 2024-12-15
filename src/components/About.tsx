@@ -23,7 +23,7 @@ const About = () => {
                 <div className="bg-dark-100 p-4 rounded-lg">
                   <h4 className="text-white font-medium">B.Tech in Computer Science and Engineering</h4>
                   <p className="text-gray-400">Annamacharya Institute of Technology and Science</p>
-                  <p className="text-gray-500">2022 – 2025 | Tirupati, India</p>
+                  <p className="text-gray-500">2021 – 2025 | Tirupati, India</p>
                 </div>
                 <div className="bg-dark-100 p-4 rounded-lg">
                   <h4 className="text-white font-medium">Intermediate in MPC</h4>
@@ -41,7 +41,7 @@ const About = () => {
                 <div className="bg-dark-100 p-4 rounded-lg">
                   <h4 className="text-white font-medium">AWS Solutions Architect  Intern</h4>
                   {/* <p className="text-gray-400">Center for Cyber Security Studies And Research</p> */}
-                  <p className="text-gray-500">April 2024 – July 2024 | Jaipur, India</p>
+                  <p className="text-gray-500">March 2024 – July 2024 | Visakhapatnam, India</p>
                 </div>
                 <div className="bg-dark-100 p-4 rounded-lg">
                   {/* <h4 className="text-white font-medium">Security Analyst Intern</h4>
