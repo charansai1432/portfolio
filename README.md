@@ -1,6 +1,5 @@
 # Charan sai - Portfolio Website
 
-<!-- ![{01082514-2449-4B9B-B9A2-682D34A18EE9}](https://github.com/user-attachments/assets/4582d7a2-46ec-403a-86d0-71920d955311) -->
 
 ## 🚀 Overview
 
@@ -51,7 +50,7 @@ A modern, responsive portfolio website showcasing my journey as a AWS Solutions 
 
 ## 🌐 Live Demo
 
-<!-- Visit the live portfolio: [Portfolio Website](https://sujeeth.netlify.app) -->
+Visit the live portfolio: [Portfolio Website](https://charansai890.netlify.app/)
 
 ---
 
