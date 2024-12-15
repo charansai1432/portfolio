@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-dark-300 text-gray-100;
+  }
+
+  canvas {
+    touch-action: none;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-6 py-2 rounded-lg font-medium transition-all duration-200;
+  }
+  
+  .btn-primary {
+    @apply bg-accent-500 text-white hover:bg-accent-600 transform hover:scale-105 active:scale-95 transition-all duration-200;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-accent-500 text-accent-500 hover:bg-accent-500 hover:text-white transform hover:scale-105 active:scale-95 transition-all duration-200;
+  }
+
+  .nav-link {
+    @apply text-gray-400 hover:text-white transition-colors duration-200 transform hover:scale-105;
+  }
+
+  .social-icon {
+    @apply text-gray-400 hover:text-accent-500 transition-all duration-200 transform hover:scale-125 hover:rotate-12;
+  }
+}
+
+.animate-gradient {
+  animation: gradient 15s linear infinite;
+}
+
+@keyframes gradient {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,14 @@
+/* Add smooth fade-in animation for the background */
+.backgroundCanvas {
+  opacity: 0;
+  animation: fadeIn 2s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
