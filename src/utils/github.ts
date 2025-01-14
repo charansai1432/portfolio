@@ -37,7 +37,7 @@ export const fetchGithubProjects = async (username: string): Promise<Repository[
     // Filter to get only specific projects  
     return data  
       .filter((repo: Repository) =>   
-        SPECIFIC_PROJECTS.includes(repo.name) && !repo.fork  
+        SPECIFIC_PROJECTS.includes(repo.name)   
       )  
       .sort((a: Repository, b: Repository) =>   
         new Date(b.created_at).getTime() - new Date(a.created_at).getTime()  
