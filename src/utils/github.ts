@@ -1,72 +1,80 @@
-import { Repository } from '../types/github';
+import { Repository } from '../types/github';  
 
-const GITHUB_API_BASE = 'https://api.github.com';
+const GITHUB_API_BASE = 'https://api.github.com';  
 
-interface GitHubError {
-  message: string;
-  documentation_url?: string;
-}
+interface GitHubError {  
+  message: string;  
+  documentation_url?: string;  
+}  
 
-export const fetchGithubProjects = async (username: string): Promise<Repository[]> => {
-  try {
-    const response = await fetch(`${GITHUB_API_BASE}/users/${username}/repos`, {
-      headers: {
-        'Accept': 'application/vnd.github.v3+json',
-        // Add a user agent to comply with GitHub API requirements
-        'User-Agent': 'Portfolio-App'
-      }
-    });
+const SPECIFIC_PROJECTS = [  
+  'AWS-PROJECTS',  
+  'Image-object-Detection-and-Recognition',  
+  'Python-projects'  
+];  
 
-    if (response.status === 403) {
-      console.warn('GitHub API rate limit exceeded. Using fallback data.');
-      return getFallbackProjects();
-    }
+export const fetchGithubProjects = async (username: string): Promise<Repository[]> => {  
+  try {  
+    const response = await fetch(`${GITHUB_API_BASE}/users/${username}/repos`, {  
+      headers: {  
+        'Accept': 'application/vnd.github.v3+json',  
+        'User-Agent': 'Portfolio-App'  
+      }  
+    });  
 
-    if (!response.ok) {
-      const error: GitHubError = await response.json();
-      throw new Error(error.message || 'Failed to fetch projects');
-    }
+    if (response.status === 403) {  
+      console.warn('GitHub API rate limit exceeded. Using fallback data.');  
+      return getFallbackProjects();  
+    }  
 
-    const data = await response.json();
-    return data
-      .filter((repo: Repository) => !repo.fork)
-      .sort((a: Repository, b: Repository) => 
-        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
-      )
-      .slice(0, 6);
-  } catch (error) {
-    console.error('Error fetching projects:', error);
-    return getFallbackProjects();
-  }
-};
+    if (!response.ok) {  
+      const error: GitHubError = await response.json();  
+      throw new Error(error.message || 'Failed to fetch projects');  
+    }  
 
-// Fallback data in case GitHub API fails
-const getFallbackProjects = (): Repository[] => [
-  {
-    name: "web-portfolio",
-    description: "My personal portfolio website built with React, TypeScript, and Tailwind CSS",
-    html_url: "https://github.com/charansai1432/portfolio",
-    topics: ["react", "typescript", "tailwindcss"],
-    homepage: "https://charansai890.netlify.app",
-    created_at: new Date().toISOString(),
-    fork: false
-  },
-  {
-    name: "AIML PROJECT",
-    description: "A Project based on the Image Object Detection and Recognition by using ML MOdels",
-    html_url: "https://github.com/charansai1432/Image-object-Detection-and-Recognition",
-    topics: ["python", "ML MOdels", "AI"],
-    homepage: "",
-    created_at: new Date().toISOString(),
-    fork: false
-  },
-  {
-    name: "AWS Cloud Projects",
-    description: "Wide Range of projects based on the AWS cloud Services",
-    html_url: "https://github.com/charansai1432/AWS-PROJECTS",
-    topics: ["aws", "security", "AWS Lambda" , "API Gateway"],
-    homepage: "",
-    created_at: new Date().toISOString(),
-    fork: false
-  }
+    const data = await response.json();  
+    
+    // Filter to get only specific projects  
+    return data  
+      .filter((repo: Repository) =>   
+        SPECIFIC_PROJECTS.includes(repo.name) && !repo.fork  
+      )  
+      .sort((a: Repository, b: Repository) =>   
+        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()  
+      );  
+  } catch (error) {  
+    console.error('Error fetching projects:', error);  
+    return getFallbackProjects();  
+  }  
+};  
+
+// Fallback data in case GitHub API fails  
+const getFallbackProjects = (): Repository[] => [  
+  {  
+    name: "AWS-PROJECTS",  
+    description: "Welcome to my AWS Projects repository...",  
+    html_url: "https://github.com/charansai1432/AWS-PROJECTS",  
+    topics: ["html"],  
+    homepage: "",  
+    created_at: new Date().toISOString(),  
+    fork: false  
+  },  
+  {  
+    name: "Image-object-Detection-and-Recognition",  
+    description: "This project leverages Python, computer vision...",  
+    html_url: "https://github.com/Sujeeth-infosec/Image-object-Detection-and-Recognition",  
+    topics: ["python", "deep-learning"],  
+    homepage: "",  
+    created_at: new Date().toISOString(),  
+    fork: false  
+  },  
+  {  
+    name: "Python-projects",  
+    description: "This repository contains my Python Projects...",  
+    html_url: "https://github.com/charansai1432/Python-projects",  
+    topics: ["python"],  
+    homepage: "",  
+    created_at: new Date().toISOString(),  
+    fork: false  
+  }  
 ];
