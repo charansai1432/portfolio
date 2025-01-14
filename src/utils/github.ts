@@ -9,10 +9,10 @@ interface GitHubError {
 
 const SPECIFIC_PROJECTS = [  
   'AWS-PROJECTS',  
-  'Docker-project',  
+  'Docker-Project',  
   'Image-object-Detection-and-Recognition',  
   'IOT-based-smart-garage-reporting',  
-  'python-projects'  
+  'Python-projects'  
 ];  
 
 // Function to sort projects based on the specified order  
@@ -22,7 +22,7 @@ const sortProjects = (projects: Repository[]): Repository[] => {
     'Docker-project': 2,  
     'Image-object-Detection-and-Recognition': 3,  
     'IOT-based-smart-garage-reporting': 4,  
-    'python-projects': 5  
+    'Python-projects': 5  
   };  
 
   return projects.sort((a, b) => (priority[a.name] || Infinity) - (priority[b.name] || Infinity));  
@@ -101,7 +101,7 @@ const getFallbackProjects = (): Repository[] => [
     fork: false  
   },  
   {  
-    name: 'python-projects',  
+    name: 'Python-projects',  
     description: "This repository contains my Python Projects...",  
     html_url: "https://github.com/charansai1432/Python-projects",  
     topics: ["python"],  
