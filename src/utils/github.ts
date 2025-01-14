@@ -47,7 +47,7 @@ const getFallbackProjects = (): Repository[] => [
     description: "My personal portfolio website built with React, TypeScript, and Tailwind CSS",
     html_url: "https://github.com/charansai1432/portfolio",
     topics: ["react", "typescript", "tailwindcss"],
-    homepage: "https://sujeeth.netlify.app",
+    homepage: "https://charansai890.netlify.app",
     created_at: new Date().toISOString(),
     fork: false
   },
