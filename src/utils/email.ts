@@ -1,9 +1,9 @@
 import emailjs from '@emailjs/browser';
 
 const EMAIL_CONFIG = {
-  SERVICE_ID: 'service_tmumg3z',
-  TEMPLATE_ID: 'template_9deq8n8',
-  PUBLIC_KEY: 'QQsFqcE_3mTo7gtjD'
+  SERVICE_ID: 'service_c23vc0r',
+  TEMPLATE_ID: 'template_9v7pyxd',
+  PUBLIC_KEY: 'i-TEEb8u4fqHkeYRK'
 };
 
 export const sendEmail = async (form: HTMLFormElement) => {
