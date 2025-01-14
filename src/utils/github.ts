@@ -1,4 +1,3 @@
-import React from 'react';  
 import { Repository } from '../types/github';  
 
 const GITHUB_API_BASE = 'https://api.github.com';  
@@ -14,7 +13,7 @@ const SPECIFIC_PROJECTS = [
   'Image-object-Detection-and-Recognition'  
 ];  
 
-// Sort projects based on the specified order  
+// Function to sort projects based on the specified order  
 const sortProjects = (projects: Repository[]): Repository[] => {  
   const priority = {  
     'AWS-PROJECTS': 1,  
@@ -25,7 +24,6 @@ const sortProjects = (projects: Repository[]): Repository[] => {
   return projects.sort((a, b) => (priority[a.name] || Infinity) - (priority[b.name] || Infinity));  
 };  
 
-// Fetch GitHub projects  
 export const fetchGithubProjects = async (username: string): Promise<Repository[]> => {  
   try {  
     const response = await fetch(`${GITHUB_API_BASE}/users/${username}/repos`, {  
@@ -60,7 +58,7 @@ export const fetchGithubProjects = async (username: string): Promise<Repository[
   }  
 };  
 
-// Fallback data in case the GitHub API fails  
+// Fallback data in case GitHub API fails  
 const getFallbackProjects = (): Repository[] => [  
   {  
     name: "AWS-PROJECTS",  
@@ -89,7 +87,4 @@ const getFallbackProjects = (): Repository[] => [
     created_at: new Date().toISOString(),  
     fork: false  
   }  
-];  
-  
-
-export default Portfolio;
+];
