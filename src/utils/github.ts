@@ -1,3 +1,4 @@
+import React from 'react';  
 import { Repository } from '../types/github';  
 
 const GITHUB_API_BASE = 'https://api.github.com';  
@@ -9,10 +10,22 @@ interface GitHubError {
 
 const SPECIFIC_PROJECTS = [  
   'AWS-PROJECTS',  
-  'Image-object-Detection-and-Recognition',  
-  'Python-projects'  
+  'Python-projects',  
+  'Image-object-Detection-and-Recognition'  
 ];  
 
+// Sort projects based on the specified order  
+const sortProjects = (projects: Repository[]): Repository[] => {  
+  const priority = {  
+    'AWS-PROJECTS': 1,  
+    'Python-projects': 2,  
+    'Image-object-Detection-and-Recognition': 3  
+  };  
+
+  return projects.sort((a, b) => (priority[a.name] || Infinity) - (priority[b.name] || Infinity));  
+};  
+
+// Fetch GitHub projects  
 export const fetchGithubProjects = async (username: string): Promise<Repository[]> => {  
   try {  
     const response = await fetch(`${GITHUB_API_BASE}/users/${username}/repos`, {  
@@ -33,37 +46,27 @@ export const fetchGithubProjects = async (username: string): Promise<Repository[
     }  
 
     const data = await response.json();  
-    
+
     // Filter to get only specific projects  
-    return data  
-      .filter((repo: Repository) =>   
-        SPECIFIC_PROJECTS.includes(repo.name)   
-      )  
-      .sort((a: Repository, b: Repository) =>   
-        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()  
-      );  
+    const filteredProjects = data.filter((repo: Repository) =>  
+      SPECIFIC_PROJECTS.includes(repo.name)  
+    );  
+
+    // Sort projects based on the defined order  
+    return sortProjects(filteredProjects);  
   } catch (error) {  
     console.error('Error fetching projects:', error);  
     return getFallbackProjects();  
   }  
 };  
 
-// Fallback data in case GitHub API fails  
+// Fallback data in case the GitHub API fails  
 const getFallbackProjects = (): Repository[] => [  
   {  
     name: "AWS-PROJECTS",  
     description: "Welcome to my AWS Projects repository...",  
     html_url: "https://github.com/charansai1432/AWS-PROJECTS",  
     topics: ["html"],  
-    homepage: "",  
-    created_at: new Date().toISOString(),  
-    fork: false  
-  },  
-  {  
-    name: "Image-object-Detection-and-Recognition",  
-    description: "This project leverages Python, computer vision...",  
-    html_url: "https://github.com/charansai1432/Image-object-Detection-and-Recognition",  
-    topics: ["python", "deep-learning"],  
     homepage: "",  
     created_at: new Date().toISOString(),  
     fork: false  
@@ -76,5 +79,53 @@ const getFallbackProjects = (): Repository[] => [
     homepage: "",  
     created_at: new Date().toISOString(),  
     fork: false  
+  },  
+  {  
+    name: "Image-object-Detection-and-Recognition",  
+    description: "This project leverages Python, computer vision...",  
+    html_url: "https://github.com/charansai1432/Image-object-Detection-and-Recognition",  
+    topics: ["python", "deep-learning"],  
+    homepage: "",  
+    created_at: new Date().toISOString(),  
+    fork: false  
   }  
-];
+];  
+
+// Click handler to open the repository link  
+const handleProjectClick = (repoUrl: string) => {  
+  window.open(repoUrl, '_blank'); // Open the repo link in a new tab  
+};  
+
+const ProjectCard = ({ project }: { project: Repository }) => (  
+  <div className="project-card" onClick={() => handleProjectClick(project.html_url)}>  
+    <h3>{project.name}</h3>  
+    <p>{project.description}</p>  
+    <p>Topics: {project.topics.join(', ')}</p>  
+    <p>{project.fork ? "Forked" : "Original"}</p>  
+  </div>  
+);  
+
+const Portfolio = ({ username }: { username: string }) => {  
+  const [projects, setProjects] = React.useState<Repository[]>([]);  
+
+  React.useEffect(() => {  
+    const fetchProjects = async () => {  
+      const fetchedProjects = await fetchGithubProjects(username);  
+      setProjects(fetchedProjects);  
+    };  
+    fetchProjects();  
+  }, [username]);  
+
+  return (  
+    <div>  
+      <h2>Projects</h2>  
+      <div className="project-cards-container">  
+        {projects.map(project => (  
+          <ProjectCard key={project.name} project={project} />  
+        ))}  
+      </div>  
+    </div>  
+  );  
+};  
+
+export default Portfolio;
