@@ -62,7 +62,7 @@ const getFallbackProjects = (): Repository[] => [
   {  
     name: "Image-object-Detection-and-Recognition",  
     description: "This project leverages Python, computer vision...",  
-    html_url: "https://github.com/Sujeeth-infosec/Image-object-Detection-and-Recognition",  
+    html_url: "https://github.com/charansai1432/Image-object-Detection-and-Recognition",  
     topics: ["python", "deep-learning"],  
     homepage: "",  
     created_at: new Date().toISOString(),  
