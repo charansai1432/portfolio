@@ -9,20 +9,9 @@ interface GitHubError {
 
 const SPECIFIC_PROJECTS = [  
   'AWS-PROJECTS',  
-  'Python-projects',  
-  'Image-object-Detection-and-Recognition'  
+  'Image-object-Detection-and-Recognition',  
+  'Python-projects'  
 ];  
-
-// Function to sort projects based on the specified order  
-const sortProjects = (projects: Repository[]): Repository[] => {  
-  const priority = {  
-    'AWS-PROJECTS': 1,  
-    'Python-projects': 2,  
-    'Image-object-Detection-and-Recognition': 3  
-  };  
-
-  return projects.sort((a, b) => (priority[a.name] || Infinity) - (priority[b.name] || Infinity));  
-};  
 
 export const fetchGithubProjects = async (username: string): Promise<Repository[]> => {  
   try {  
@@ -44,14 +33,15 @@ export const fetchGithubProjects = async (username: string): Promise<Repository[
     }  
 
     const data = await response.json();  
-
+    
     // Filter to get only specific projects  
-    const filteredProjects = data.filter((repo: Repository) =>  
-      SPECIFIC_PROJECTS.includes(repo.name)  
-    );  
-
-    // Sort projects based on the defined order  
-    return sortProjects(filteredProjects);  
+    return data  
+      .filter((repo: Repository) =>   
+        SPECIFIC_PROJECTS.includes(repo.name)  
+      )  
+      .sort((a: Repository, b: Repository) =>   
+        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()  
+      );  
   } catch (error) {  
     console.error('Error fetching projects:', error);  
     return getFallbackProjects();  
@@ -70,19 +60,19 @@ const getFallbackProjects = (): Repository[] => [
     fork: false  
   },  
   {  
-    name: "Python-projects",  
-    description: "This repository contains my Python Projects...",  
-    html_url: "https://github.com/charansai1432/Python-projects",  
-    topics: ["python"],  
+    name: "Image-object-Detection-and-Recognition",  
+    description: "This project leverages Python, computer vision...",  
+    html_url: "https://github.com/Sujeeth-infosec/Image-object-Detection-and-Recognition",  
+    topics: ["python", "deep-learning"],  
     homepage: "",  
     created_at: new Date().toISOString(),  
     fork: false  
   },  
   {  
-    name: "Image-object-Detection-and-Recognition",  
-    description: "This project leverages Python, computer vision...",  
-    html_url: "https://github.com/charansai1432/Image-object-Detection-and-Recognition",  
-    topics: ["python", "deep-learning"],  
+    name: "Python-projects",  
+    description: "This repository contains my Python Projects...",  
+    html_url: "https://github.com/charansai1432/Python-projects",  
+    topics: ["python"],  
     homepage: "",  
     created_at: new Date().toISOString(),  
     fork: false  
