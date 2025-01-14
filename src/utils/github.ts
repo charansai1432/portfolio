@@ -9,16 +9,20 @@ interface GitHubError {
 
 const SPECIFIC_PROJECTS = [  
   'AWS-PROJECTS',  
-  'Python-projects',  
-  'Image-object-Detection-and-Recognition'  
+  'Docker-project',  
+  'Image-object-Detection-and-Recognition',
+  'IOT-based-smart-garage-reporting'  ,
+  'python-projects'
 ];  
 
 // Function to sort projects based on the specified order  
 const sortProjects = (projects: Repository[]): Repository[] => {  
   const priority = {  
     'AWS-PROJECTS': 1,  
-    'Python-projects': 2,  
-    'Image-object-Detection-and-Recognition': 3  
+    'Docker-project': 2,  
+    'Image-object-Detection-and-Recognition': 3  ,
+    'IOT-based-smart-garage-reporting' : 4 ,
+    'python-projects' : 5
   };  
 
   return projects.sort((a, b) => (priority[a.name] || Infinity) - (priority[b.name] || Infinity));  
@@ -70,9 +74,9 @@ const getFallbackProjects = (): Repository[] => [
     fork: false  
   },  
   {  
-    name: "Python-projects",  
-    description: "This repository contains my Python Projects...",  
-    html_url: "https://github.com/charansai1432/Python-projects",  
+    name: "Docker-projects",  
+    description: "This repository contains my Docker Project...",  
+    html_url: "https://github.com/charansai1432/Docker-Project",  
     topics: ["python"],  
     homepage: "",  
     created_at: new Date().toISOString(),  
@@ -87,4 +91,22 @@ const getFallbackProjects = (): Repository[] => [
     created_at: new Date().toISOString(),  
     fork: false  
   }  
+  {  
+    name: "IOT-based-smart-garage-reporting",  
+    description: "This project leverages Python, IOT , Sensors",  
+    html_url: "https://github.com/charansai1432/IOT-based-smart-garage-reporting",  
+    topics: ["python", "IOT"],  
+    homepage: "",  
+    created_at: new Date().toISOString(),  
+    fork: false  
+  }
+  {  
+    name: 'python-projects',  
+    description: "This repository contains my Python  Project...",  
+    html_url: "https://github.com/charansai1432/Python-projects",  
+    topics: ["python"],  
+    homepage: "",  
+    created_at: new Date().toISOString(),  
+    fork: false  
+  },  
 ];
