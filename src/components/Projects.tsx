@@ -1,86 +1,33 @@
-import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import ProjectCard from './ProjectCard';
-import { fetchGithubProjects } from '../utils/github';
-import type { Repository } from '../types/github';
+import React, { useEffect, useState } from 'react';  
+import { fetchGithubProjects } from '../utils/github';  
+import { Repository } from '../types/github';  
 
-const Projects = () => {
-  const [projects, setProjects] = useState<Repository[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+const Projects = ({ username }: { username: string }) => {  
+  const [projects, setProjects] = useState<Repository[]>([]);  
 
-  useEffect(() => {
-    const loadProjects = async () => {
-      try {
-        const data = await fetchGithubProjects('charansai1432');
-        setProjects(data);
-        setError(null);
-      } catch (err) {
-        setError('Unable to load projects at the moment. Showing featured projects instead.');
-      } finally {
-        setLoading(false);
-      }
-    };
+  useEffect(() => {  
+    const loadProjects = async () => {  
+      const fetchedProjects = await fetchGithubProjects(username);  
+      setProjects(fetchedProjects);  
+    };  
+    loadProjects();  
+  }, [username]);  
 
-    loadProjects();
-  }, []);
-
-  return (
-    <section id="projects" className="py-20 bg-dark-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-3xl font-bold text-white mb-12 text-center">Projects</h2>
-          
-          {loading && (
-            <div className="text-center text-gray-400">
-              <div className="animate-pulse">Loading projects...</div>
-            </div>
-          )}
-
-          {error && (
-            <div className="text-center text-gray-400 mb-8">
-              {error}
-            </div>
-          )}
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project) => (
-              <ProjectCard
-                key={project.name}
-                title={project.name.replace(/-/g, ' ').replace(/_/g, ' ')}
-                description={project.description || 'No description available'}
-                technologies={project.topics.length > 0 ? project.topics : ['N/A']}
-                github={project.html_url}
-                live={project.homepage}
-              />
-            ))}
-          </div>
-
-          {!loading && !error && projects.length === 0 && (
-            <div className="text-center text-gray-400">
-              No projects found. Please check back later.
-            </div>
-          )}
-
-          <div className="text-center mt-12">
-            <a
-              href="https://github.com/charansai1432"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-accent-500 text-white px-6 py-2 rounded-lg hover:bg-accent-600 transition-colors duration-200"
-            >
-              View More on GitHub
-            </a>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  );
-};
+  return (  
+    <div>  
+      <h2>Projects</h2>  
+      <div className="project-cards-container">  
+        {projects.map((project) => (  
+          <div className="project-card" key={project.name} onClick={() => window.open(project.html_url, '_blank')}>  
+            <h3>{project.name}</h3>  
+            <p>{project.description}</p>  
+            <p>Topics: {project.topics.join(', ')}</p>  
+            <p>{project.fork ? "Forked" : "Original"}</p>  
+          </div>  
+        ))}  
+      </div>  
+    </div>  
+  );  
+};  
 
 export default Projects;
