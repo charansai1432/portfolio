@@ -8,24 +8,24 @@ interface GitHubError {
   documentation_url?: string;  
 }  
 
-// Project names in the desired order  
 const SPECIFIC_PROJECTS = [  
-  'Image-object-Detection-and-Recognition',  
+  'AWS-PROJECTS',  
   'Python-projects',  
-  'AWS-PROJECTS'  
+  'Image-object-Detection-and-Recognition'  
 ];  
 
 // Sort projects based on the specified order  
 const sortProjects = (projects: Repository[]): Repository[] => {  
   const priority = {  
-    'Image-object-Detection-and-Recognition': 1,  
+    'AWS-PROJECTS': 1,  
     'Python-projects': 2,  
-    'AWS-PROJECTS': 3  
+    'Image-object-Detection-and-Recognition': 3  
   };  
 
   return projects.sort((a, b) => (priority[a.name] || Infinity) - (priority[b.name] || Infinity));  
 };  
 
+// Fetch GitHub projects  
 export const fetchGithubProjects = async (username: string): Promise<Repository[]> => {  
   try {  
     const response = await fetch(`${GITHUB_API_BASE}/users/${username}/repos`, {  
@@ -60,12 +60,13 @@ export const fetchGithubProjects = async (username: string): Promise<Repository[
   }  
 };  
 
+// Fallback data in case the GitHub API fails  
 const getFallbackProjects = (): Repository[] => [  
   {  
-    name: "Image-object-Detection-and-Recognition",  
-    description: "This project leverages Python, computer vision...",  
-    html_url: "https://github.com/charansai1432/Image-object-Detection-and-Recognition",  
-    topics: ["python", "deep-learning"],  
+    name: "AWS-PROJECTS",  
+    description: "Welcome to my AWS Projects repository...",  
+    html_url: "https://github.com/charansai1432/AWS-PROJECTS",  
+    topics: ["html"],  
     homepage: "",  
     created_at: new Date().toISOString(),  
     fork: false  
@@ -80,12 +81,15 @@ const getFallbackProjects = (): Repository[] => [
     fork: false  
   },  
   {  
-    name: "AWS-PROJECTS",  
-    description: "Welcome to my AWS Projects repository...",  
-    html_url: "https://github.com/charansai1432/AWS-PROJECTS",  
-    topics: ["html"],  
+    name: "Image-object-Detection-and-Recognition",  
+    description: "This project leverages Python, computer vision...",  
+    html_url: "https://github.com/charansai1432/Image-object-Detection-and-Recognition",  
+    topics: ["python", "deep-learning"],  
     homepage: "",  
     created_at: new Date().toISOString(),  
     fork: false  
   }  
-];
+];  
+  
+
+export default Portfolio;

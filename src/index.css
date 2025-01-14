@@ -50,23 +50,3 @@
     transform: rotate(360deg);
   }
 }
-.project-cards-container {  
-  display: flex;  
-  flex-direction: row;  
-  justify-content: space-between;  
-  margin: 20px 0;  
-}  
-
-.project-card {  
-  background-color: #333;  
-  color: #fff;  
-  padding: 20px;  
-  border-radius: 8px;  
-  width: calc(33.33% - 20px); /* Divide space equally */  
-  cursor: pointer;  
-  transition: transform 0.2s;  
-}  
-
-.project-card:hover {  
-  transform: scale(1.05); /* Scale effect on hover */  
-}
