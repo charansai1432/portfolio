@@ -8,8 +8,7 @@
   }
   
   body {
-    background-color: #f0f0f0; /* Your new background color */  
-    color: #333; 
+    @apply bg-dark-300 text-gray-100;
   }
 
   canvas {
