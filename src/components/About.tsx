@@ -40,13 +40,11 @@ const About = () => {
               <div className="space-y-4">
                 <div className="bg-dark-100 p-4 rounded-lg">
                   <h4 className="text-white font-medium">AWS Solutions Architect  Intern</h4>
-                  {/* <p className="text-gray-400">Center for Cyber Security Studies And Research</p> */}
+                  
                   <p className="text-gray-500">March 2024 – July 2024 | Visakhapatnam, India</p>
                 </div>
                 <div className="bg-dark-100 p-4 rounded-lg">
-                  {/* <h4 className="text-white font-medium">Security Analyst Intern</h4>
-                  <p className="text-gray-400">Cyberfort Digisec Solutions</p>
-                  <p className="text-gray-500">January 2022 – May 2022 | Chennai, India</p> */}
+                  
                 </div>
               </div>
             </div>

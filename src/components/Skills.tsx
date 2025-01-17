@@ -9,6 +9,7 @@ const Skills = () => {
     "Solutions Architect Badge - AWS",
     "Network Defence Essentials - EC-Council",
     "Cloud Platform Virtual Experience Program-Forage"
+    "Python certificate - Udemy"
   ];
 
   return (
