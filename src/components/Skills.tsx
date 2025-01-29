@@ -8,7 +8,7 @@ const Skills = () => {
     "Microsoft Certified: Azure Administrator Associate",
     "Solutions Architect Badge - AWS",
     "Network Defence Essentials - EC-Council",
-    "Cloud Platform Virtual Experience Program-Forage"
+    "Cloud Platform Virtual Experience Program-Forage",
     "Python certificate - Udemy"
   ];
 
