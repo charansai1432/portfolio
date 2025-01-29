@@ -50,3 +50,5 @@ export const skillsData: SkillCategory[] = [
     items: ["MySQL", "MongoDB"]
   }
 ];
+
+

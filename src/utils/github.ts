@@ -12,22 +12,22 @@ const SPECIFIC_PROJECTS = [
   'Docker-Project',  
   'Image-object-Detection-and-Recognition',  
   'IOT-based-smart-garage-reporting',  
-  'Python-projects',
+  'Python-projects',  
   'Prediction-of-cyber-attacks-using-ML'  
 ];  
 
 // Function to sort projects based on the specified order  
 const sortProjects = (projects: Repository[]): Repository[] => {  
-  const priority = {  
+  const priority: Record<string, number> = {  
     'AWS-PROJECTS': 1,  
-    'Docker-project': 2,  
+    'Docker-Project': 2,  
     'Image-object-Detection-and-Recognition': 3,  
     'IOT-based-smart-garage-reporting': 4,  
-    'Python-projects': 5  
-    'Prediction-of-cyber-attacks-using-ML' : 6
+    'Python-projects': 5,  
+    'Prediction-of-cyber-attacks-using-ML': 6  
   };  
 
-  return projects.sort((a, b) => (priority[a.name] || Infinity) - (priority[b.name] || Infinity));  
+  return projects.sort((a, b) => (priority[a.name] ?? Infinity) - (priority[b.name] ?? Infinity));  
 };  
 
 export const fetchGithubProjects = async (username: string): Promise<Repository[]> => {  
@@ -53,7 +53,7 @@ export const fetchGithubProjects = async (username: string): Promise<Repository[
 
     // Filter to get only specific projects  
     const filteredProjects = data.filter((repo: Repository) =>  
-      SPECIFIC_PROJECTS.includes(repo.name)  
+      SPECIFIC_PROJECTS.map(p => p.toLowerCase()).includes(repo.name.toLowerCase())  
     );  
 
     // Sort projects based on the defined order  
@@ -76,7 +76,7 @@ const getFallbackProjects = (): Repository[] => [
     fork: false  
   },  
   {  
-    name: "Docker-project",  
+    name: "Docker-Project",  
     description: "This repository contains my Docker Project...",  
     html_url: "https://github.com/charansai1432/Docker-Project",  
     topics: ["python"],  
@@ -113,11 +113,21 @@ const getFallbackProjects = (): Repository[] => [
   },  
   {  
     name: 'Prediction-of-cyber-attacks-using-ML',  
-    description: "This repository contains my Cyber Security  Projects using ML ...",  
+    description: "This repository contains my Cyber Security Projects using ML ...",  
     html_url: "https://github.com/charansai1432/Prediction-of-cyber-attacks-using-ML",  
-    topics: ["python, ML"],  
+    topics: ["python", "ML"],  
     homepage: "",  
     created_at: new Date().toISOString(),  
     fork: false  
-  }
-];
+  }  
+];  
+
+export interface Repository {  
+  name: string;  
+  description: string;  
+  html_url: string;  
+  topics: string[];  
+  homepage: string;  
+  created_at: string;  
+  fork: boolean;  
+}  
