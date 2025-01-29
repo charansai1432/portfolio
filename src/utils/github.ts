@@ -115,7 +115,7 @@ const getFallbackProjects = (): Repository[] => [
     name: 'Prediction-of-cyber-attacks-using-ML',  
     description: "This repository contains my Cyber Security  Projects using ML ...",  
     html_url: "https://github.com/charansai1432/Prediction-of-cyber-attacks-using-ML",  
-    topics: ["python"],  
+    topics: ["python, ML"],  
     homepage: "",  
     created_at: new Date().toISOString(),  
     fork: false  
