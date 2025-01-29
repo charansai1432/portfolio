@@ -12,7 +12,8 @@ const SPECIFIC_PROJECTS = [
   'Docker-Project',  
   'Image-object-Detection-and-Recognition',  
   'IOT-based-smart-garage-reporting',  
-  'Python-projects'  
+  'Python-projects',
+  'Prediction-of-cyber-attacks-using-ML'  
 ];  
 
 // Function to sort projects based on the specified order  
@@ -23,6 +24,7 @@ const sortProjects = (projects: Repository[]): Repository[] => {
     'Image-object-Detection-and-Recognition': 3,  
     'IOT-based-smart-garage-reporting': 4,  
     'Python-projects': 5  
+    'Prediction-of-cyber-attacks-using-ML' : 6
   };  
 
   return projects.sort((a, b) => (priority[a.name] || Infinity) - (priority[b.name] || Infinity));  
@@ -109,4 +111,13 @@ const getFallbackProjects = (): Repository[] => [
     created_at: new Date().toISOString(),  
     fork: false  
   },  
+  {  
+    name: 'Prediction-of-cyber-attacks-using-ML',  
+    description: "This repository contains my Cyber Security  Projects using ML ...",  
+    html_url: "https://github.com/charansai1432/Prediction-of-cyber-attacks-using-ML",  
+    topics: ["python"],  
+    homepage: "",  
+    created_at: new Date().toISOString(),  
+    fork: false  
+  }
 ];
