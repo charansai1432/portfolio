@@ -51,9 +51,9 @@ export const fetchGithubProjects = async (username: string): Promise<Repository[
 
     const data = await response.json();  
 
-    // Filter to get only specific projects  
-    const filteredProjects = data.filter((repo: Repository) =>  
-      SPECIFIC_PROJECTS.map(p => p.toLowerCase()).includes(repo.name.toLowerCase())  
+    // Filter to get only specific projects (case-insensitive matching)  
+    const filteredProjects = data.filter((repo: Repository) =>
+      SPECIFIC_PROJECTS.some(p => p.toLowerCase() === repo.name.toLowerCase())
     );  
 
     // Sort projects based on the defined order  
