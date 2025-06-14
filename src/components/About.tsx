@@ -39,11 +39,24 @@ const About = () => {
               </h3>
               <div className="space-y-4">
                 <div className="bg-dark-100 p-4 rounded-lg">
-                  <h4 className="text-white font-medium">AWS Solutions Architect  Intern</h4>
+                  <h4 className="text-white font-medium">AWS Solutions Architect  </h4>
                   
                   <p className="text-gray-500">March 2024 – July 2024 | Visakhapatnam, India</p>
+                  <ul className="list-disc list-inside text-gray-400 mt-2">
+                    <li>Designed and deployed scalable cloud solutions using AWS services.</li>
+                    <li>Automated deployment processes with CI/CD pipelines.</li>
+                    <li>Optimized cloud infrastructure for cost and performance.</li>
+                  </ul>
                 </div>
                 <div className="bg-dark-100 p-4 rounded-lg">
+                  <h4 className="text-white font-medium">Software Developer</h4>
+                  
+                  <p className="text-gray-500">Feb 2025 – June 2025 | Remote </p>
+                  <ul className="list-disc list-inside text-gray-400 mt-2">
+                    <li>Developed and maintained web applications using React and Node.js.</li>
+                    <li>Collaborated with cross-functional teams to deliver high-quality software.</li>
+                    <li>Implemented RESTful APIs and integrated third-party services.</li>
+                  </ul>
                   
                 </div>
               </div>

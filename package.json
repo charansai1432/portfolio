@@ -10,15 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.1.0",
+    "@react-three/drei": "^9.99.7",
+    "@react-three/fiber": "^8.15.19",
+    "framer-motion": "^11.0.8",
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "framer-motion": "^11.0.8",
-    "@emailjs/browser": "^4.1.0",
     "react-hot-toast": "^2.4.1",
-    "three": "^0.162.0",
-    "@react-three/fiber": "^8.15.19",
-    "@react-three/drei": "^9.99.7"
+    "three": "^0.162.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.5",
@@ -34,6 +34,6 @@
     "postcss": "^8.4.35",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.2.2",
-    "vite": "^5.1.4"
+    "vite": "^5.4.19"
   }
 }

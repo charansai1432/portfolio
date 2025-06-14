@@ -11,12 +11,12 @@ export const skillsData: SkillCategory[] = [
   {
     icon: Code,
     title: "Programming Languages",
-    items: ["JavaScript",  "Python",  "HTML", "CSS"]
+    items: ["JavaScript",  "Python" ,"Java"]
   },
   {
     icon: Globe,
     title: "Web Technologies",
-    items: ["React.js", "Node.js", "GraphQL"]
+    items: ["React.js", "Node.js", "Express.js", "Tailwind CSS", "Bootstrap", "Next.js"]
   },
   {
     icon: Cloud,
@@ -30,6 +30,13 @@ export const skillsData: SkillCategory[] = [
       "Cloud Watch",
       "AWS Amplify",
       "AWS cognito"
+    ]
+  },
+  {
+    icon: Cloud,
+    title: "Hosting Platforms",
+    items: [
+      "Netlify",  "Render" , "Hostinger"
     ]
   },
   {

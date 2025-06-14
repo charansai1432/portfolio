@@ -11,8 +11,8 @@ const SPECIFIC_PROJECTS = [
   'AWS-PROJECTS',  
   'Docker-Project',  
   'Image-object-Detection-and-Recognition',  
-  'IOT-based-smart-garage-reporting',  
-  'Python-projects',  
+  'VirtuHR-Coach-',  
+  'certificate-verification',  
   'Prediction-of-cyber-attacks-using-ML'  
 ];  
 
@@ -22,8 +22,8 @@ const sortProjects = (projects: Repository[]): Repository[] => {
     'AWS-PROJECTS': 1,  
     'Docker-Project': 2,  
     'Image-object-Detection-and-Recognition': 3,  
-    'IOT-based-smart-garage-reporting': 4,  
-    'Python-projects': 5,  
+    'VirtuHR-Coach-': 4,  
+    'certificate-verification': 5,  
     'Prediction-of-cyber-attacks-using-ML': 6  
   };  
 
