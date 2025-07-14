@@ -39,7 +39,7 @@ const About = () => {
               </h3>
               <div className="space-y-4">
                 <div className="bg-dark-100 p-4 rounded-lg">
-                  <h4 className="text-white font-medium">MERN Stack Developer && AWS Solutions Architect  </h4>
+                  <h4 className="text-white font-medium"> AWS Solutions Architect  </h4>
                   
                   <p className="text-gray-500">March 2024 – July 2024 | Visakhapatnam, India</p>
                   <ul className="list-disc list-inside text-gray-400 mt-2">
