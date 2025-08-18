@@ -21,7 +21,7 @@ const Hero = () => {
             <Container className="w-8 h-8 text-accent-500" />
           </div>
           <p className="text-xl text-gray-300 mb-8">
-            MERN Stack Developer && AWS Solutions Architect 
+            Software Engineer 
           </p>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
             I am Chintala Charan Sai, a passionate Cloud Engineer with a completed B.Tech in Computer Science and Engineering, specializing in Cyber Security, IoT, and Blockchain. I have hands-on experience with AWS services, CI/CD pipelines, Docker, Kubernetes, and web development using React.js. I’ve worked on real-time projects like an AI-powered Virtual HR Coach, a multi-tier Docker Swarm application, and a serverless Fortune Teller app using AWS Lambda. With previous experience as an AWS Solutions Architect Intern at Infispec Innovations and current work as a Software Developer at GreatHire, I bring practical expertise in cloud deployment, automation, and system optimization. I am also certified in AWS, Microsoft Azure, and Network Defense Essentials.</p>
