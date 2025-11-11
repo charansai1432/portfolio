@@ -11,7 +11,7 @@ export const skillsData: SkillCategory[] = [
   {
     icon: Code,
     title: "Programming Languages",
-    items: ["JavaScript",  "Python" ,"Java"]
+    items: ["JavaScript",  "Python" ,"Django", "Java"]
   },
   {
     icon: Globe,
