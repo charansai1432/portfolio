@@ -132,7 +132,7 @@ const FALLBACK_MAP: Record<string, Repository> = {
   'aistudybuddy': {
     name: 'AI-Study-Buddy',
     description: 'AI Study Buddy — an assistant using Gemini API, React frontend and Django backend. AI-powered study partner to help students learn effectively. Helps with explanations, quizzes, and study plans.',
-    html_url: 'https://github.com/charansai1432/AI-Study-Buddy',
+    html_url: 'https://github.com/charansai1432/AI-study-App',
     topics: ['AI', 'React', 'Django', 'Gemini API'],
     homepage: '',
     created_at: new Date().toISOString(),
