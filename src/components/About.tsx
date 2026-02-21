@@ -15,50 +15,85 @@ const About = () => {
           <h2 className="text-3xl font-bold text-white mb-12 text-center">About Me</h2>
           
           <div className="grid md:grid-cols-2 gap-12">
+            
+            {/* Education Section */}
             <div className="space-y-6">
               <h3 className="text-xl font-semibold text-accent-500 flex items-center gap-2">
                 <GraduationCap className="w-5 h-5" /> Education
               </h3>
               <div className="space-y-4">
                 <div className="bg-dark-100 p-4 rounded-lg">
-                  <h4 className="text-white font-medium">B.Tech in Computer Science and Engineering</h4>
-                  <p className="text-gray-400">Annamacharya Institute of Technology and Science</p>
+                  <h4 className="text-white font-medium">
+                    B.Tech in Computer Science and Engineering
+                  </h4>
+                  <p className="text-gray-400">
+                    Annamacharya Institute of Technology and Science
+                  </p>
                   <p className="text-gray-500">2021 – 2025 | Tirupati, India</p>
                 </div>
+
                 <div className="bg-dark-100 p-4 rounded-lg">
                   <h4 className="text-white font-medium">Intermediate in MPC</h4>
-                  <p className="text-gray-400">Narayana Junior collage </p>
-                  <p className="text-gray-500">2019-2021 | Anantapur, India</p>
+                  <p className="text-gray-400">Narayana Junior College</p>
+                  <p className="text-gray-500">2019 – 2021 | Anantapur, India</p>
                 </div>
               </div>
             </div>
 
+            {/* Experience Section */}
             <div className="space-y-6">
               <h3 className="text-xl font-semibold text-accent-500 flex items-center gap-2">
                 <Briefcase className="w-5 h-5" /> Experience
               </h3>
               <div className="space-y-4">
+
+                {/* EdgeVerve Experience */}
                 <div className="bg-dark-100 p-4 rounded-lg">
-                  <h4 className="text-white font-medium"> AWS Solutions Architect  </h4>
-                  
-                  <p className="text-gray-500">March 2024 – July 2024 | Visakhapatnam, India</p>
+                  <h4 className="text-white font-medium">
+                    System Engineer – EdgeVerve Systems (Finacle)
+                  </h4>
+                  <p className="text-gray-500">
+                    Nov 2025 – Present | Bengaluru, India
+                  </p>
+                  <ul className="list-disc list-inside text-gray-400 mt-2">
+                    <li>Working on the Finacle core banking product, developing backend modules using Java and Spring Boot within a distributed microservices architecture.</li>
+  
+                    <li>Designing and enhancing RESTful APIs, implementing business logic, and optimizing SQL queries for high-volume financial transactions.</li>
+  
+                    <li>Contributing to scalable and fault-tolerant distributed systems, ensuring high availability and consistency across services.</li>
+  
+                     <li>Integrating microservices with relational databases and improving performance through query tuning and efficient data modeling.</li>
+  
+                     <li>Debugging production issues, performing root cause analysis, and improving system reliability in enterprise-scale banking environments.</li>
+                    </ul>
+                </div>
+
+                {/* AWS Experience */}
+                <div className="bg-dark-100 p-4 rounded-lg">
+                  <h4 className="text-white font-medium">AWS Solutions Architect</h4>
+                  <p className="text-gray-500">
+                    March 2024 – July 2024 | Visakhapatnam, India
+                  </p>
                   <ul className="list-disc list-inside text-gray-400 mt-2">
                     <li>Designed and deployed scalable cloud solutions using AWS services.</li>
                     <li>Automated deployment processes with CI/CD pipelines.</li>
                     <li>Optimized cloud infrastructure for cost and performance.</li>
                   </ul>
                 </div>
+
+                {/* Software Developer Experience */}
                 <div className="bg-dark-100 p-4 rounded-lg">
                   <h4 className="text-white font-medium">Software Developer</h4>
-                  
-                  <p className="text-gray-500">Feb 2025 – June 2025 | Remote </p>
+                  <p className="text-gray-500">
+                    Feb 2025 – June 2025 | Remote
+                  </p>
                   <ul className="list-disc list-inside text-gray-400 mt-2">
                     <li>Developed and maintained web applications using React and Node.js.</li>
                     <li>Collaborated with cross-functional teams to deliver high-quality software.</li>
                     <li>Implemented RESTful APIs and integrated third-party services.</li>
                   </ul>
-                  
                 </div>
+
               </div>
             </div>
           </div>

@@ -6,6 +6,9 @@ import { skillsData } from './skills/skillsData';
 const Skills = () => {
   const certifications = [
     "Microsoft Certified: Azure Administrator Associate",
+    "Microsoft Certified: Azure AI Engineer Associate",
+    "Google Cloud Certified - Associate Cloud Engineer",
+    "Infosys Certified AWS Solutions Architect Associate",
     "Solutions Architect Badge - AWS",
     "Network Defence Essentials - EC-Council",
     "Cloud Platform Virtual Experience Program-Forage",
